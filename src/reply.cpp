@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 #include "structs.hpp"
+#include "parser.hpp"
 
 using namespace std;
 
@@ -8,15 +9,12 @@ int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-    ifstream inputFile;
-    string fileName="";
+    Data data = parseData();
+
+    // ofstream outputFile;
+    // string outputFileName="";
+
+    // outputFile.open(outputFileName);
     
-    inputFile.open(fileName);
-
-    ofstream outputFile;
-    string outputFileName="";
-
-    outputFile.open(outputFileName);
-
-    
+    return 0;
 }
