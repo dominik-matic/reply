@@ -2,17 +2,15 @@
 
 using namespace std;
 
-class Developer{
-    public:
-        string company;
-        unsigned long long bonus;
-        set<string> skills;
+struct Developer{
+    string company;
+    unsigned long long bonus;
+    set<string> skills;
 };
 
-class Manager{
-    public:
-        string company;
-        unsigned long long bonus;
+struct Manager{
+    string company;
+    unsigned long long bonus;
 };
 
 struct Data {
