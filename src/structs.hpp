@@ -1,16 +1,17 @@
+#pragma once
 #include <bits/stdc++.h>
 
 using namespace std;
 
 struct Developer{
     string company;
-    unsigned long long bonus;
+    unsigned int bonus;
     set<string> skills;
 };
 
 struct Manager{
     string company;
-    unsigned long long bonus;
+    unsigned int bonus;
 };
 
 struct Data {
