@@ -2,8 +2,7 @@
 #define __STRUCTS_HPP
 #include "structs.hpp"
 
-typename<T, K>
-unsigned int calcTotalPotential(T r1, K r2) {
+template <typename T, typename K> unsigned int calcTotalPotential(T r1, K r2) {
     unsigned int bonusPotential = 0;
     unsigned int workPotential = 0;
 
@@ -14,14 +13,16 @@ unsigned int calcTotalPotential(T r1, K r2) {
 
 
     //work potential
-    if(Developer d1 = dynamic_cast<Developer>(r1)
-        && Developer d2 = dynamic_cast<Developer>(r2)) {
+    if(std::is_same<T, Developer>::value
+        && std::is_same<K, Developer>::value) {
         unsigned int common = 0;
         set<string> disjunct;
-        disjunct.insert(d1.skills.begin(), d1.skills.end());
-        disjunct.insert(d2.skills.begin(), d2.skills.end());
-        for(string s1 : d1.skills) {
-            for(string s2 : d2.skills) {
+
+        disjunct.insert(r1.skills.begin(), r1.skills.end());
+        disjunct.insert(r2.skills.begin(), r2.skills.end());
+
+        for(string s1 : r1.skills) {
+            for(string s2 : r2.skills) {
                 if(s1 == s2) {
                     disjunct.erase(s1);
                     ++common;
@@ -29,6 +30,7 @@ unsigned int calcTotalPotential(T r1, K r2) {
                 }
             }
         }
+        workPotential = common * disjunct.size();
     }
 
     return bonusPotential + workPotential;
